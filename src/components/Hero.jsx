@@ -1,4 +1,5 @@
 import { Code2, BookOpen, ArrowDown, Mail } from 'lucide-react'
+import avatar from '../assets/rasm.jpg'
 
 export default function Hero() {
   return (
@@ -42,7 +43,7 @@ export default function Hero() {
           </div>
         </div>
           <img
-            src="/avatar.jpg"
+            src={avatar}
             alt="Mukhammad Usmonov"
             className="hidden md:block w-52 h-52 rounded-3xl object-cover shadow-2xl shadow-indigo-200 flex-shrink-0"
           />
