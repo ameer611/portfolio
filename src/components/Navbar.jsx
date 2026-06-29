@@ -2,14 +2,14 @@ import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import logo from '../assets/logo.png'
 
-const links = ['About', 'Skills', 'Experience', 'Projects', 'Contact']
+const links = ['About', 'Skills', 'Experience', 'Projects', 'Resume', 'Contact']
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   return (
     <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
-        <img src={logo} alt="Mukhammad Usmonov" className="h-8 w-auto" />
+        <img src={logo} alt="Mukhammad Usmonov" className="h-10 w-auto" />
         <div className="hidden md:flex gap-8">
           {links.map(l => (
             <a key={l} href={`#${l.toLowerCase()}`}
