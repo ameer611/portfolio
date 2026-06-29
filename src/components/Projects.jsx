@@ -11,7 +11,7 @@ const projects = [
       'Integrated LLMs via Groq API to minimize hallucinations by grounding responses strictly within official documentation.',
     ],
     tech: ['LangChain', 'Qdrant', 'Hugging Face', 'Groq API', 'Streamlit', 'RAG', 'Python'],
-    link: '#',
+    link: 'https://huggingface.co/spaces/Ameer1606/PostgresPro-Support',
   },
   {
     title: 'AI Medicine Reminder System',
@@ -23,7 +23,7 @@ const projects = [
       'Used Cerebras AI API to validate, normalize, and enhance extracted drug information, significantly boosting data accuracy and UX.',
     ],
     tech: ['FastAPI', 'Aiogram', 'APScheduler', 'Google Gemini', 'Cerebras AI', 'Telegram Bot'],
-    link: '#',
+    link: 'https://t.me/dorivor_eslatma_bot',
   },
 ]
 

@@ -8,9 +8,7 @@ export default function Navbar() {
   return (
     <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
-        <span className="font-extrabold text-lg tracking-tight text-slate-900">
-          M.<span className="text-indigo-600">Usmonov</span>
-        </span>
+        <img src="/logo.png" alt="Mukhammad Usmonov" className="h-8 w-auto" />
         <div className="hidden md:flex gap-8">
           {links.map(l => (
             <a key={l} href={`#${l.toLowerCase()}`}

@@ -2,7 +2,7 @@ const skillCategories = [
   { icon: '🐍', title: 'Languages', tags: ['Python'] },
   {
     icon: '📊', title: 'Data Science & ML',
-    tags: ['pandas', 'polars', 'numpy', 'Scikit-learn', 'Keras', 'matplotlib', 'seaborn', 'LangChain'],
+    tags: ['pandas', 'polars', 'numpy', 'Scikit-learn', 'Keras', 'matplotlib', 'seaborn', 'LangChain', 'RAG'],
   },
   {
     icon: '🤖', title: 'Agentic Frameworks',
@@ -10,7 +10,7 @@ const skillCategories = [
   },
   {
     icon: '🧠', title: 'LLM Platforms & APIs',
-    tags: ['OpenAI', 'Anthropic (Claude)', 'Google Gemini', 'Groq API', 'CerebrasAI API', 'EasyOCR'],
+    tags: ['OpenAI', 'Anthropic (Claude)', 'Google Gemini', 'Groq API', 'CerebrasAI API', 'EasyOCR', 'HuggingFace 🤗'],
   },
   {
     icon: '⚙️', title: 'Backend Engineering',
@@ -30,7 +30,7 @@ const skillCategories = [
   },
   {
     icon: '💡', title: 'Concepts',
-    tags: ['RAG', 'Machine Learning', 'Supervised Learning', 'Unsupervised Learning', 'Model Evaluation',
+    tags: ['Machine Learning', 'Supervised Learning', 'Unsupervised Learning', 'Model Evaluation',
       'Tokenization', 'Async Processing', 'Caching', 'OOP', 'Microservices', 'JWT',
       'Agile / Kanban', 'Multiprocessing', 'Multithreading', 'Linear Algebra'],
     wide: true,

@@ -30,9 +30,9 @@ export default function Hero() {
           </div>
           <div className="flex flex-wrap gap-3">
             {[
-              { label: 'GitHub', icon: Code2, href: 'https://github.com' },
-              { label: 'LinkedIn', icon: BookOpen, href: 'https://linkedin.com' },
-              { label: 'Medium', icon: Mail, href: 'https://medium.com' },
+              { label: 'GitHub', icon: Code2, href: 'https://github.com/ameer611' },
+              { label: 'LinkedIn', icon: BookOpen, href: 'https://linkedin.com/in/muhammad-usmonov-oo1' },
+              { label: 'Medium', icon: Mail, href: 'https://usmon-muxammad.medium.com/' },
             ].map(({ label, icon: Icon, href }) => (
               <a key={label} href={href} target="_blank" rel="noreferrer"
                 className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-indigo-600 border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50 px-4 py-2 rounded-lg transition-all">
@@ -41,9 +41,11 @@ export default function Hero() {
             ))}
           </div>
         </div>
-        <div className="hidden md:flex w-52 h-52 rounded-3xl bg-gradient-to-br from-indigo-500 to-violet-600 items-center justify-center text-7xl font-black text-white/90 shadow-2xl shadow-indigo-200 flex-shrink-0">
-          MU
-        </div>
+          <img
+            src="/avatar.jpg"
+            alt="Mukhammad Usmonov"
+            className="hidden md:block w-52 h-52 rounded-3xl object-cover shadow-2xl shadow-indigo-200 flex-shrink-0"
+          />
       </div>
     </section>
   )
