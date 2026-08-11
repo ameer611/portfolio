@@ -1,39 +1,45 @@
-const cards = [
-  {
-    type: '🎓 Education',
-    title: 'Bachelor of Computer Science',
-    sub: 'AI Solutions and Applications',
-    org: 'PDP University — Tashkent',
-    period: '',
-  },
-  {
-    type: '🌍 Volunteering',
-    title: 'Software Developer',
-    sub: '',
-    org: 'United Nations Development Programme (UNDP)',
-    period: "Nov '25 — Jan '26",
-  },
-]
+import { ArrowUpRight, GraduationCap } from 'lucide-react'
+import { education } from '../data/site'
+import Rise from './Rise'
+import Section from './Section'
 
 export default function Education() {
   return (
-    <section id="education" className="py-24 px-6 bg-white">
-      <div className="max-w-6xl mx-auto">
-        <p className="text-xs font-bold tracking-widest uppercase text-indigo-600 mb-3">Background</p>
-        <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 mb-10">Education & volunteering</h2>
-        <div className="grid sm:grid-cols-2 gap-5">
-          {cards.map((c) => (
-            <div key={c.title}
-              className="bg-slate-50 border border-slate-200 rounded-xl p-6 hover:border-indigo-300 hover:shadow-md transition-all duration-200">
-              <p className="text-sm font-semibold text-indigo-600 mb-2">{c.type}</p>
-              <h3 className="text-lg font-bold text-slate-900">{c.title}</h3>
-              {c.sub && <p className="text-sm text-slate-500 mt-0.5">{c.sub}</p>}
-              <p className="text-sm font-semibold text-indigo-500 mt-2">{c.org}</p>
-              {c.period && <p className="text-xs text-slate-400 mt-1.5">{c.period}</p>}
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <Section id="education" label="Education" title="Academic background">
+      <ul className="grid gap-3 sm:grid-cols-2">
+        {education.map(({ qualification, field, institution, institutionUrl, place, period }) => (
+          <Rise as="li" key={qualification} className="card p-7 sm:p-9">
+            <span className="flex h-11 w-11 items-center justify-center rounded-pill bg-card-2 ring-1 ring-inset ring-edge">
+              <GraduationCap size={18} aria-hidden="true" className="text-ink" />
+            </span>
+
+            <h3 className="mt-5 font-display text-xl font-semibold text-ink">{qualification}</h3>
+            {field && <p className="mt-1.5 text-base text-ink-muted">{field}</p>}
+            <p className="mt-4 text-sm font-medium text-ink">
+              {institutionUrl ? (
+                <a
+                  href={institutionUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group/link inline-flex items-center gap-1 hover:underline"
+                >
+                  {institution}
+                  <ArrowUpRight
+                    size={13}
+                    aria-hidden="true"
+                    className="text-ink-faint transition-transform duration-200 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5"
+                  />
+                  <span className="sr-only"> — opens the university website</span>
+                </a>
+              ) : (
+                institution
+              )}
+            </p>
+            {place && <p className="mt-0.5 text-sm text-ink-faint">{place}</p>}
+            {period && <p className="mt-3 text-sm text-ink-faint">{period}</p>}
+          </Rise>
+        ))}
+      </ul>
+    </Section>
   )
 }

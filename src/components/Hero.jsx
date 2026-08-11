@@ -1,52 +1,100 @@
-import { Code2, BookOpen, ArrowDown, Mail } from 'lucide-react'
-import avatar from '../assets/rasm.jpg'
+import { ArrowDown, Download, MapPin } from 'lucide-react'
+import { metrics, profile, resumes, socials } from '../data/site'
+import { socialIcons } from './iconRegistry'
+import avatar from '../assets/avatar.jpg'
+
+const cv = resumes[0]
 
 export default function Hero() {
   return (
-    <section id="hero" className="py-24 px-6 bg-gradient-to-br from-white via-indigo-50/40 to-white">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-[1fr_auto] gap-12 items-center">
-        <div>
-          <div className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-600 text-xs font-bold px-4 py-1.5 rounded-full mb-6 tracking-wide uppercase">
-            <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse" />
-            Available for opportunities
-          </div>
-          <h1 className="text-5xl md:text-6xl font-black tracking-tight text-slate-900 leading-[1.05] mb-3">
-            Mukhammad<br />Usmonov
-          </h1>
-          <p className="text-xl md:text-2xl font-semibold text-indigo-600 mb-4">
-            AI Engineer & Backend Developer
-          </p>
-          <p className="text-lg text-slate-500 max-w-xl leading-relaxed mb-8">
-            Building high-performance intelligent systems, production-ready RAG pipelines, and optimized backend microservices.
-          </p>
-          <div className="flex flex-wrap gap-3 mb-8">
-            <a href="#projects"
-              className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-3 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-indigo-200">
-              View Projects <ArrowDown size={16} />
-            </a>
-            <a href="#contact"
-              className="inline-flex items-center gap-2 border-2 border-slate-200 hover:border-indigo-400 text-slate-700 hover:text-indigo-600 font-semibold px-6 py-3 rounded-lg transition-all hover:-translate-y-0.5">
-              Contact Me <Mail size={16} />
-            </a>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            {[
-              { label: 'GitHub', icon: Code2, href: 'https://github.com/ameer611' },
-              { label: 'LinkedIn', icon: BookOpen, href: 'https://linkedin.com/in/muhammad-usmonov-oo1' },
-              { label: 'Medium', icon: Mail, href: 'https://usmon-muxammad.medium.com/' },
-            ].map(({ label, icon: Icon, href }) => (
-              <a key={label} href={href} target="_blank" rel="noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-indigo-600 border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50 px-4 py-2 rounded-lg transition-all">
-                <Icon size={16} /> {label}
+    <section id="top" className="pb-8 pt-10 sm:pt-16">
+      <div className="shell">
+        <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-14">
+          <div className="animate-rise">
+            {profile.available && (
+              <p className="badge">
+                <span className="relative flex h-1.5 w-1.5 items-center justify-center">
+                  <span className="absolute h-1.5 w-1.5 animate-halo rounded-full bg-ink" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-ink" />
+                </span>
+                Available for opportunities
+              </p>
+            )}
+
+            <h1 className="mt-6 text-display font-bold text-ink">
+              {profile.first}
+              <br />
+              {profile.last}
+            </h1>
+
+            <p className="mt-5 font-display text-lg font-medium text-ink sm:text-xl">
+              {profile.role}
+            </p>
+
+            <p className="mt-4 max-w-readable text-base leading-relaxed text-ink-muted sm:text-lg">
+              {profile.tagline}
+            </p>
+
+            <p className="mt-5 inline-flex items-center gap-1.5 text-sm text-ink-faint">
+              <MapPin size={14} aria-hidden="true" />
+              {profile.location}
+            </p>
+
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <a href={cv.href} download={cv.file} className="btn-solid">
+                <Download size={15} aria-hidden="true" />
+                Download CV
               </a>
-            ))}
+              <a href="#experience" className="btn-quiet">
+                See my work
+                <ArrowDown size={15} aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+
+          {/* Portrait framed as a surface, with the social links docked beneath. */}
+          <div className="order-first mx-auto w-full max-w-xs lg:order-none lg:max-w-none">
+            <div className="card overflow-hidden p-2">
+              {/* Native 2:3 aspect — the frame matches the photo so nothing is cropped. */}
+              <img
+                src={avatar}
+                width="900"
+                height="1318"
+                alt={`Portrait of ${profile.name}`}
+                className="aspect-[900/1318] w-full rounded-[0.95rem] object-cover"
+              />
+            </div>
+
+            <ul className="no-print mt-3 grid grid-cols-3 gap-3">
+              {socials.map(({ label, key, href }) => {
+                const Icon = socialIcons[key]
+                return (
+                  <li key={key}>
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="card-interactive flex flex-col items-center gap-1.5 px-2 py-3 text-ink-muted hover:text-ink"
+                    >
+                      <Icon size={16} />
+                      <span className="text-xs font-medium">{label}</span>
+                    </a>
+                  </li>
+                )
+              })}
+            </ul>
           </div>
         </div>
-          <img
-            src={avatar}
-            alt="Mukhammad Usmonov"
-            className="hidden md:block w-52 h-52 rounded-3xl object-cover shadow-2xl shadow-indigo-200 flex-shrink-0"
-          />
+
+        {/* Delivery numbers, drawn from the experience below. */}
+        <dl className="mt-10 grid gap-3 sm:mt-14 sm:grid-cols-3">
+          {metrics.map(({ value, label }) => (
+            <div key={label} className="card p-6">
+              <dt className="font-display text-4xl font-bold tracking-tight text-ink">{value}</dt>
+              <dd className="mt-2 text-sm leading-snug text-ink-muted">{label}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   )

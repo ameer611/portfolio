@@ -3,10 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Mukhammad Usmonov — AI Engineer & Backend Developer. Building high-performance intelligent systems, RAG pipelines, and backend microservices." />
-    <title>Mukhammad Usmonov — AI Engineer & Backend Developer</title>
-    <!-- <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%234F46E5'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-size='16' font-weight='900' fill='white'>MU</text></svg>" /> -->
-     <link rel="icon" type="image/png" href="./favicon.png" />
+    <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0A0A0A" media="(prefers-color-scheme: dark)" />
+    <meta name="author" content="Mukhammad Usmonov" />
+    <meta
+      name="description"
+      content="Mukhammad Usmonov — AI Engineer & Backend Developer in Tashkent. Production RAG pipelines, LLM-backed products, and backend services built to hold up under load."
+    />
+    <title>Mukhammad Usmonov — AI Engineer &amp; Backend Developer</title>
+
+    <link rel="icon" type="image/png" href="./favicon.png" />
+    <link rel="canonical" href="https://ameer611.github.io/portfolio/" />
+
+    <!-- Link previews for LinkedIn, Telegram, X, etc. -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content="https://ameer611.github.io/portfolio/" />
+    <meta property="og:title" content="Mukhammad Usmonov — AI Engineer & Backend Developer" />
+    <meta
+      property="og:description"
+      content="Production RAG pipelines, LLM-backed products, and backend services built to hold up under load."
+    />
+    <meta property="og:image" content="https://ameer611.github.io/portfolio/favicon.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Mukhammad Usmonov — AI Engineer & Backend Developer" />
+    <meta
+      name="twitter:description"
+      content="Production RAG pipelines, LLM-backed products, and backend services built to hold up under load."
+    />
+    <meta name="twitter:image" content="https://ameer611.github.io/portfolio/favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Applies the saved theme before first paint so there is no flash. -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme')
+          var dark =
+            stored === 'dark' ||
+            (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)
+          if (dark) document.documentElement.classList.add('dark')
+        } catch (e) {}
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>

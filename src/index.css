@@ -1,7 +1,143 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html { scroll-behavior: smooth; }
-* { box-sizing: border-box; }
+@layer base {
+  /* Page sits slightly back from the cards so surfaces read as layers. */
+  :root {
+    --page: 244 244 245;
+    --card: 255 255 255;
+    --card-2: 250 250 250;
+    --ink: 10 10 10;
+    --ink-2: 82 82 82;
+    /* Tuned so faint text still clears AA on the raised card surface. */
+    --ink-3: 106 106 106;
+    --edge: 232 232 234;
+    --edge-2: 214 214 218;
+    color-scheme: light;
+  }
+
+  :root.dark {
+    --page: 9 9 11;
+    --card: 24 24 27;
+    --card-2: 32 32 36;
+    --ink: 250 250 250;
+    --ink-2: 168 168 168;
+    /* Tuned so faint text still clears AA on the raised card surface. */
+    --ink-3: 141 141 141;
+    --edge: 39 39 42;
+    --edge-2: 63 63 70;
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-page font-sans text-ink antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+  }
+
+  ::selection {
+    @apply bg-ink text-page;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-ink ring-offset-2;
+    --tw-ring-offset-color: rgb(var(--page));
+  }
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-shell px-4 sm:px-6;
+  }
+
+  .card {
+    @apply rounded-card border border-edge bg-card shadow-soft;
+  }
+
+  .card-interactive {
+    @apply card transition-all duration-300 hover:-translate-y-1 hover:shadow-lift motion-reduce:hover:translate-y-0;
+  }
+
+  /* Small pill used for section eyebrows and status. */
+  .badge {
+    @apply inline-flex items-center gap-2 rounded-pill border border-edge bg-card px-3.5 py-1.5 text-xs font-medium text-ink-muted;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-pill bg-card-2 px-3 py-1.5 text-[0.8rem] font-medium text-ink-muted ring-1 ring-inset ring-edge;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-pill px-6 py-3 text-sm font-semibold transition-all duration-200;
+  }
+
+  .btn-solid {
+    @apply btn bg-ink text-page hover:opacity-90;
+  }
+
+  .btn-quiet {
+    @apply btn border border-edge-strong bg-card text-ink hover:border-ink;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Recruiters print and save these pages — keep it a usable document. */
+@media print {
+  :root {
+    --page: 255 255 255;
+    --card: 255 255 255;
+    --card-2: 255 255 255;
+    --ink: 0 0 0;
+    --ink-2: 55 55 55;
+    --ink-3: 90 90 90;
+    --edge: 205 205 205;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    font-size: 11pt;
+  }
+
+  .card {
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+
+  section {
+    padding-block: 1rem !important;
+  }
+
+  a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    font-size: 9pt;
+    color: #555;
+  }
+}
