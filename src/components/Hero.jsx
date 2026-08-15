@@ -58,10 +58,10 @@ export default function Hero() {
               {/* Native 2:3 aspect — the frame matches the photo so nothing is cropped. */}
               <img
                 src={avatar}
-                width="900"
-                height="1318"
+                width="950"
+                height="1392"
                 alt={`Portrait of ${profile.name}`}
-                className="aspect-[900/1318] w-full rounded-[0.95rem] object-cover"
+                className="aspect-[950/1392] w-full rounded-[0.95rem] object-cover"
               />
             </div>
 
