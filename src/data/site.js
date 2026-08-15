@@ -20,11 +20,12 @@ export const socials = [
   { label: 'Medium', key: 'medium', href: 'https://usmon-muxammad.medium.com/' },
 ]
 
-// Taken from the delivery numbers in the experience entries below.
+// Delivery numbers lifted from the experience entries below. Each one names
+// where it came from so a reader can check it against the role further down.
 export const metrics = [
-  { value: '30%', label: 'Cut in AI model running cost in production' },
-  { value: '40%', label: 'Reduction in API response latency' },
-  { value: '50k+', label: 'Events per day through Kafka' },
+  { value: '30%', label: 'Lower AI model running cost', source: 'Metasell AI' },
+  { value: '40%', label: 'Faster APIs over 100k+ record datasets', source: 'Ministry of Economy and Finance' },
+  { value: '50k+', label: 'Events per day through Kafka', source: 'Ministry of Economy and Finance' },
 ]
 
 export const profileCopy = {
@@ -54,7 +55,6 @@ export const jobs = [
     period: 'Jul 2026 — Present',
     stack: ['Python', 'FastAPI', 'LangGraph', 'LLM APIs', 'Speech-to-text', 'PostgreSQL'],
     points: [
-      'Built the AI call analyser that transcribes and evaluates sales conversations end to end.',
       'Migrated the production model behind analysis and scoring, cutting model running costs by roughly 30% while holding output quality steady.',
       "Extended the scoring pipeline with reasoning in the model's output, and defined the manager rating formula across conversation volume, quality, and average and total talk time.",
       'Built an automated alerting channel that fires when a conversation score falls outside configurable thresholds, delivering the score, a link to the conversation and total talk time.',
@@ -275,13 +275,17 @@ export const resumes = [
   },
 ]
 
-// Recruiters read in this order: who, what have you done, what have you
-// built, what do you know, credentials, how to reach you.
+// Recruiters read in this order: who you are, where you've worked, whether
+// your stack matches the brief, proof you can build, credentials, how to
+// reach you. Skills sit above projects because a first pass is a keyword
+// match — the deep read of the project write-ups only happens after it.
+// This array drives both the nav and the scroll spy, so keep it in step
+// with the component order in App.jsx.
 export const sections = [
   { id: 'profile', label: 'Profile' },
   { id: 'experience', label: 'Experience' },
-  { id: 'projects', label: 'Projects' },
   { id: 'skills', label: 'Skills' },
+  { id: 'projects', label: 'Projects' },
   { id: 'education', label: 'Education' },
   { id: 'contact', label: 'Contact' },
 ]

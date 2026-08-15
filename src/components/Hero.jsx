@@ -86,12 +86,16 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Delivery numbers, drawn from the experience below. */}
+        {/* Delivery numbers, drawn from the experience below and attributed to
+            the role they came from so each one is checkable. */}
         <dl className="mt-10 grid gap-3 sm:mt-14 sm:grid-cols-3">
-          {metrics.map(({ value, label }) => (
-            <div key={label} className="card p-6">
+          {metrics.map(({ value, label, source }) => (
+            <div key={label} className="card flex flex-col p-6">
               <dt className="font-display text-4xl font-bold tracking-tight text-ink">{value}</dt>
-              <dd className="mt-2 text-sm leading-snug text-ink-muted">{label}</dd>
+              <dd className="mt-2 text-sm leading-snug text-ink-muted">
+                {label}
+                <span className="mt-2 block text-xs text-ink-faint">{source}</span>
+              </dd>
             </div>
           ))}
         </dl>
