@@ -20,14 +20,6 @@ export const socials = [
   { label: 'Medium', key: 'medium', href: 'https://usmon-muxammad.medium.com/' },
 ]
 
-// Delivery numbers lifted from the experience entries below. Each one names
-// where it came from so a reader can check it against the role further down.
-export const metrics = [
-  { value: '30%', label: 'Lower AI model running cost', source: 'Metasell AI' },
-  { value: '40%', label: 'Faster APIs over 100k+ record datasets', source: 'Ministry of Economy and Finance' },
-  { value: '50k+', label: 'Events per day through Kafka', source: 'Ministry of Economy and Finance' },
-]
-
 export const profileCopy = {
   heading: 'Bridging applied AI and dependable backend engineering',
   paragraphs: [
