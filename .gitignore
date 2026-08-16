@@ -9,3 +9,6 @@ dist
 # Source image pasted in while working — not part of the site
 Pasted image.png
 image.png
+
+# Fonts cached by tools/og-image.py
+tools/.fonts/
