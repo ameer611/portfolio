@@ -7,7 +7,7 @@ export const profile = {
   last: 'Usmonov',
   role: 'AI Engineer — LLM, RAG & agent systems',
   location: 'Tashkent, Uzbekistan',
-  email: 'm.usmon.1606@gmail.com',
+  email: 'me@ameer.uz',
   phone: '+998 (95) 010-1606',
   available: true,
   tagline:
